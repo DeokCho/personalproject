@@ -1,67 +1,120 @@
 <template>
   <v-app>
     <v-app-bar
-      app
-      color="white"
-      dark
+            app
+            color="white"
+            dark
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="KBOLOGO"
-          class="kbologo"
-          contain
-          src="@/assets/kbologo.png"
-          transition="scale-transition"
-          width="70"
+        <img @click="for_main"
+               alt="KBOLOGO"
+               class="kbologo"
+               contain
+               src="@/assets/kbologo.png"
+               transition="scale-transition"
+               width="70"/>
         />
 
       </div>
-
-      <v-spacer></v-spacer>
-
-      <!--<v-btn
-        href="#"
-        target="_blank"
-        text
-      >
-        <span class="login">로그인</span>
-      </v-btn>-->
-      <input id="login" type="button" value="로그인" />
-      <a></a>
+      <input @click="login" id="main_login" type="button" value="로그인" />
+      <a @click="search_player">역대 선수 정보</a>
     </v-app-bar>
-
+    <top>
+      <br>
+      <br>
+    </top>
     <v-content>
-      <Home/>
+        <router-view/>
     </v-content>
+
+    <div id="bottom">
+      <div id="bottom_left">
+        <a>Information</a>
+      </div>
+      <div id="bottom_right">
+        <a>개인정보처리방침</a>
+        <a>약관</a>
+        <a>설정</a>
+      </div>
+    </div>
+
   </v-app>
 </template>
 
 <script>
-import Home from './components/Home';
 
-export default {
-  name: 'App',
+  export default {
+    data(){
+      return {
+        findAll: "YES"
+      };
+    },
+    methods:{
+      login(){
+        this.$router.push("/login");
+      },
+      for_main() {
+        this.$router.push("/")
+      },
+      search_player(){
+        this.$store.dispatch("crawling/totalReference")
+      }
+    }
 
-  components: {
-    Home,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+  };
 </script>
+
 <style scoped>
-  #login{
-    background-color: #4485f3;
-    color: #ffffff;
+  .kbologo{
+    cursor : pointer;
+    margin: 10px 7px;
+    vertical-align: middle;
+  }
+
+  #main_login{
+    background-color: dodgerblue;
+    color: white;
     width: 70px;
     height: 30px;
     border: none;
-    vertical-align: middle;
     margin: 10px 12px 10px 7px;
     font-weight: bold;
     font-size: 10pt;
     border-radius: 2px;
+    right : 300px;
+    float : right;
+  }
+  body {
+    margin: 0px;
+    min-width: 1300px;
+    min-height: 550px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 10.5pt;
+    margin: 0px 10px;
+    color: grey;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  #bottom {
+    border: 1px solid #e4e4e4;
+    border-right: none;
+    border-left: none;
+    position: absolute;
+    bottom: 0px;
+    background-color: #f2f2f2;
+    height: 50px;
+    width: 100%;
+    min-width: 1050px;
+  }
+  #bottom_left {
+    float: left;
+    padding: 15px;
+  }
+  #bottom_right {
+    float: right;
+    padding: 15px;
   }
 </style>

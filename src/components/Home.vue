@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div id="top">
-    </div>
-    <br />
+  <v-app>
     <div>
       <img
               id="mainIMG"
@@ -28,19 +25,10 @@
               value="검색"
       />
     </div>
-    <div id="bottom">
-      <div id="bottom_left">
-        <a>Information</a>
-      </div>
-      <div id="bottom_right">
-        <a>개인정보처리방침</a>
-        <a>약관</a>
-        <a>설정</a>
-      </div>
-    </div>
-  </div>
+  </v-app>
 </template>
 <script>
+
   export default {
     data() {
       return {
@@ -49,8 +37,16 @@
     },
     methods: {
       search() {
-        this.$store.dispatch("search/find", this.searchWord);
-
+        this.$store.dispatch("search/search", this.searchWord);
+      },
+      login(){
+        this.$router.push("/login");
+      },
+      for_main() {
+        this.$router.push("/login")
+      },
+      search_player(){
+        this.$router.push("/playerList")
       }
     }
   };
@@ -58,12 +54,8 @@
 <style scoped>
   body {
     margin: 0px;
-    min-width: 1050px;
+    min-width: 1300px;
     min-height: 550px;
-  }
-  #top {
-    margin: 5px 5px;
-    float: right;
   }
   a {
     text-decoration: none;
@@ -78,12 +70,6 @@
     margin: 10px 7px;
     width: 20px;
     vertical-align: middle;
-  }
-  #google {
-    display: block;
-    width: 290px;
-    height: 100px;
-    margin: 180px auto 20px;
   }
   #search {
     display: block;
