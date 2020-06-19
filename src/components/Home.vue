@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <div>
+    <div >
       <img
               id="mainIMG"
-              src="@/assets/main.jpg"
+              src="@/assets/majormain.jpg"
               title="baseball"
       />
     </div><br><br>
@@ -12,7 +12,7 @@
               id="search"
               v-model="searchWord"
               type="text"
-              placeholder="Who is best of KBO League?"
+              placeholder="Who is best of Major League?"
               style=" background-repeat: no-repeat; background-position: 88% 50%, 98% 50%;"
               title="검색"
       />
@@ -25,6 +25,8 @@
               value="검색"
       />
     </div>
+    <br>
+    <br>
   </v-app>
 </template>
 <script>

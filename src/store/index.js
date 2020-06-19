@@ -5,7 +5,7 @@ import crawling from "./crawling"
 Vue.use(Vuex)
 export const store = new Vuex.Store({
     modules: {
-        crawling,
+        crawling, member
     }
 })
 

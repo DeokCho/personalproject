@@ -4,14 +4,14 @@
             <h2>Login</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input type="text" id="identity" required="">
                     <label>ID</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required="">
+                    <input type="password" id="passwd" required="">
                     <label>Password</label>
                 </div>
-                <a>
+                <a @click="letslogin">
                     로그인
                 </a>
                 <a id="font-right" @click="login_cancel">취소</a>
@@ -27,13 +27,22 @@
 
 <script>
     export default {
-        name: "Login",
+        data(){
+          return {
+              identity: '',
+              passwd: ''
+          }
+        },
         methods :{
             join(){
                 this.$router.push("/join")
             },
             login_cancel(){
                 this.$router.push("/")
+            },
+            letslogin(){
+                this.$store.dispatch("member/login",
+                    {identity, passwd})
             }
         }
     }

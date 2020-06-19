@@ -4,19 +4,19 @@
             <h2>회원가입</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input type="text" id="identity" required="">
                     <label>ID</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="" required="">
+                    <input type="password" id="passwd" required="">
                     <label>Password</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>주민등록번호</label>
+                    <input type="text" id="email" required="">
+                    <label>이메일</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" name="" required="">
+                    <input type="text" id="addr" required="">
                     <label>주소</label>
                 </div>
 

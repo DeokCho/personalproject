@@ -7,10 +7,10 @@
     >
       <div class="d-flex align-center">
         <img @click="for_main"
-               alt="KBOLOGO"
-               class="kbologo"
+               alt="MLBLOGO"
+               class="mlblogo"
                contain
-               src="@/assets/kbologo.png"
+               src="@/assets/MLBLOGO.png"
                transition="scale-transition"
                width="70"/>
         />
@@ -65,7 +65,7 @@
 </script>
 
 <style scoped>
-  .kbologo{
+  .mlblogo{
     cursor : pointer;
     margin: 10px 7px;
     vertical-align: middle;

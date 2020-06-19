@@ -8,8 +8,17 @@ const state={
 }
 
 const actions={
-    async join({commit}, userInformation){
+    async join({commit}, joinInformation){
         commit("JOIN", userInform)
+    },
+    async login({commit}, identity, passwd){
+        axios
+            .post(state.context+'/login')
+            .then(({data})=>{
+                commit("LOGIN", data)
+            })
+            .catch(()=>{})
+
     }
 }
 
@@ -20,4 +29,13 @@ const mutations ={
 
 const getters ={
 
+}
+
+export default {
+    name:"member",
+    namespaced: true,
+    state,
+    actions,
+    mutations,
+    getters
 }

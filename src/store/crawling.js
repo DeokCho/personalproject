@@ -9,27 +9,45 @@ const state ={
 
 const actions = {
     async totalReference({commit}){
-        alert('Actions Start')
         axios
-            .get(state.context+"records/alltime")
-            .then((data)=>{
+            .get(state.context+"references/totalReference")
+            .then(({data})=>{
                 commit("TOTALREFERENCE",data)
+                alert("성공")
                 router.push("/playerList")})
-            .catch(()=>{})
-
-        alert("Actions End")
+            .catch(()=>{
+                alert("실패")
+            })
 
     }
 }
 
 const mutations ={
     TOTALREFERENCE(state, data){
-        state.player = data
+        data.list.forEach(item => state.player.push({
+            referenceSeq: item.referenceSeq,
+            playerName: item.playerName,
+            gamesPlayed: item.gamesPlayed,
+            atBat: item.atBat,
+            runs: item.runs,
+            hits: item.hits,
+            doubles: item.doubles,
+            triples: item.triples,
+            homeRuns: item.homeRuns,
+            runsBattedIn: item.runsBattedIn,
+            walks: item.walks,
+            strikeouts: item.strikeouts,
+            stolenBases: item.stolenBases,
+            caughtStealing: item.caughtStealing,
+            battingAverage: item.battingAverage,
+            onBasePercentage: item.onBasePercentage,
+            sluggingPercentage: item.sluggingPercentage
+        }))
     }
 }
 
 const getters ={
-
+    player: state => state.player
 }
 
 
