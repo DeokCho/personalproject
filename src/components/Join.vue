@@ -4,19 +4,23 @@
             <h2>회원가입</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" id="identity" required="">
+                    <input type="text" v-model="identity" required="">
                     <label>ID</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" id="passwd" required="">
+                    <input type="text" v-model="password" required="">
                     <label>Password</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" id="email" required="">
+                <input type="test" v-model="name" required="">
+                <label>이름</label>
+            </div>
+                <div class="user-box">
+                    <input type="text" v-model="email" required="">
                     <label>이메일</label>
                 </div>
                 <div class="user-box">
-                    <input type="text" id="addr" required="">
+                    <input type="text" v-model="addr" required="">
                     <label>주소</label>
                 </div>
 
@@ -31,13 +35,23 @@
 
 <script>
     export default {
-        name: "Join",
+        data(){
+          return{
+              identity: '',
+              password: '',
+              email : '',
+              addr : '',
+              name: ''
+          }
+        },
         methods:{
             join_cancel(){
                 this.$router.push("/")
             },
             join_confirm(){
-                this.$store.dispatch("")
+                this.$store.dispatch("member/join",
+                    {identity:this.identity, password:this.password, name:this.name,
+                        email:this.email, addr:this.addr})
             }
 
 
@@ -47,7 +61,7 @@
 
 <style scoped>
     #login{
-        height : 600px
+        height : 750px
     }
     body {
         margin: 0px;

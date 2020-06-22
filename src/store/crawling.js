@@ -13,10 +13,9 @@ const actions = {
             .get(state.context+"references/totalReference")
             .then(({data})=>{
                 commit("TOTALREFERENCE",data)
-                alert("성공")
                 router.push("/playerList")})
             .catch(()=>{
-                alert("실패")
+                alert("action failed")
             })
 
     }

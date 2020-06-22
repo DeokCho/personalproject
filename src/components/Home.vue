@@ -7,24 +7,24 @@
               title="baseball"
       />
     </div><br><br>
-    <div>
-      <input
-              id="search"
-              v-model="searchWord"
-              type="text"
-              placeholder="Who is best of Major League?"
-              style=" background-repeat: no-repeat; background-position: 88% 50%, 98% 50%;"
-              title="검색"
-      />
-    </div>
-    <div id="box">
-      <input
-              @click="search"
-              id="player_search"
-              type="button"
-              value="검색"
-      />
-    </div>
+<!--    <div>-->
+<!--      <input-->
+<!--              id="search"-->
+<!--              v-model="searchWord"-->
+<!--              type="text"-->
+<!--              placeholder="Who is best of Major League?"-->
+<!--              style=" background-repeat: no-repeat; background-position: 88% 50%, 98% 50%;"-->
+<!--              title="검색"-->
+<!--      />-->
+<!--    </div>-->
+<!--    <div id="box">-->
+<!--      <input-->
+<!--              @click="search"-->
+<!--              id="player_search"-->
+<!--              type="button"-->
+<!--              value="검색"-->
+<!--      />-->
+<!--    </div>-->
     <br>
     <br>
   </v-app>

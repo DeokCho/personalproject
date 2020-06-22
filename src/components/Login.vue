@@ -4,11 +4,11 @@
             <h2>Login</h2>
             <form>
                 <div class="user-box">
-                    <input type="text" id="identity" required="">
+                    <input type="text" v-model="identity" required="">
                     <label>ID</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" id="passwd" required="">
+                    <input type="password" v-model="password" required="">
                     <label>Password</label>
                 </div>
                 <a @click="letslogin">
@@ -30,7 +30,7 @@
         data(){
           return {
               identity: '',
-              passwd: ''
+              password: ''
           }
         },
         methods :{
@@ -42,7 +42,7 @@
             },
             letslogin(){
                 this.$store.dispatch("member/login",
-                    {identity, passwd})
+                    {identity:this.identity, password:this.password})
             }
         }
     }
